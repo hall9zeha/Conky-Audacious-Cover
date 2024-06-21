@@ -51,3 +51,11 @@ conky -c ~/.conky/.conky-audacious-cover
 if you have copied all the files following the instructions, otherwise you can configure it at your convenience.
 
 ## Screenshots
+* Vinyl style
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen1.png"  alt="drawing" width="70%" height="70%"/></p>
+
+* Minimal style
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen2.png"  alt="drawing" width="70%" height="70%"/></p>
+
+* Compact Disc style
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen3.png"  alt="drawing" width="70%" height="70%"/></p>
