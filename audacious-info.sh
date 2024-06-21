@@ -207,9 +207,8 @@ AudaciousInfo(){
     2) # conky minimalist style, only cover and info
     AudaciousInfo bg
     AudaciousInfo art
-
     #echo -n "\${image ~/.conky/pix/audbg.png -p 0,0}" # background for default
-    echo -n "\${image ~/.conky/pix/"$AlbumArt" -p 28,9 -s 120x120}"
+    echo -n "\${image ~/.conky/pix/"$AlbumArt" -p 28,24 -s 120x120}"
 
     echo ""
     echo -n "                     "
