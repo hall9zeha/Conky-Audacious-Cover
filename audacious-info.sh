@@ -109,6 +109,13 @@ GetArt(){
             elif [ -f "$Directory/cover.jpg" ]; then
             cp "$Directory/cover.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
+            elif [ -f "$Directory/Front.jpg" ]; then
+            cp "$Directory/Front.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+
+            elif [ -f "$Directory/front.jpg" ]; then
+            cp "$Directory/front.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+
+
             else
             # If it does not exist, copy the EmptyCover file to cover.jpg
             #cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
