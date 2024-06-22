@@ -56,10 +56,13 @@ if you have copied all the files following the instructions, otherwise you can c
 
 ## Screenshots
 * Vinyl style
-<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen1.png"  alt="drawing" width="70%" height="70%"/></p>
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen1.png"  alt="drawing" width="50%" height="50%"/></p>
 
 * Minimal style
-<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen2.png"  alt="drawing" width="70%" height="70%"/></p>
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen2.png"  alt="drawing" width="50%" height="50%"/></p>
 
 * Compact Disc style
-<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen3.png"  alt="drawing" width="70%" height="70%"/></p>
+<p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen3.png"  alt="drawing" width="50%" height="50%"/></p>
+
+<p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen5.png"  alt="drawing" width="70%" height="70%"/></p>
+<p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen4.png"  alt="drawing" width="70%" height="70%"/></p>
