@@ -53,4 +53,4 @@ TEXT
 # conky_minimal cover = 2
 # after audacious-info.sh -> 1 or 2
 
-${if_running audacious}${execpi 2 ~/.conky/audacious-info.sh 1}${endif}
+${if_running audacious}${execpi 2 ~/.conky/Conky-Audacious-Cover/audacious-info.sh 1}${endif}

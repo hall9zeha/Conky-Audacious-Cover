@@ -87,10 +87,10 @@ GetArt(){
 
     if [ -f "$FilePath" ]; then
         # Delete the cover.jpg file if it already exists
-        rm -f ~/.conky/pix/cover.jpg
+        rm -f ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
         # Extract cover art from audio file using ffmpeg
-        ffmpeg -i "$FilePath" -an -vcodec copy -f image2 ~/.conky/pix/cover.jpg >/dev/null 2>&1
+        ffmpeg -i "$FilePath" -an -vcodec copy -f image2 ~/.conky/Conky-Audacious-Cover/pix/cover.jpg >/dev/null 2>&1
 
         # If the file does not have a cover in its metadata, look for the following
         # inside the file directory
@@ -98,20 +98,20 @@ GetArt(){
         if [ $? -ne 0 ]; then
             if [ -f "$Directory/Folder.jpg" ]; then
 
-            cp "$Directory/Folder.jpg" ~/.conky/pix/cover.jpg
+            cp "$Directory/Folder.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             elif [ -f "$Directory/folder.jpg" ]; then
-            cp "$Directory/folder.jpg" ~/.conky/pix/cover.jpg
+            cp "$Directory/folder.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             elif [ -f "$Directory/Cover.jpg" ]; then
-            cp "$Directory/Cover.jpg" ~/.conky/pix/cover.jpg
+            cp "$Directory/Cover.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             elif [ -f "$Directory/cover.jpg" ]; then
-            cp "$Directory/cover.jpg" ~/.conky/pix/cover.jpg
+            cp "$Directory/cover.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             else
             # If it does not exist, copy the EmptyCover file to cover.jpg
-            #cp ~/.conky/pix/"$EmptyCover" ~/.conky/pix/cover.jpg
+            #cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
             FoundFile=false
             fi
 
@@ -119,7 +119,7 @@ GetArt(){
 
     else
         # If the audio file cannot be found, use backup
-        cp ~/.conky/pix/"$EmptyCover" ~/.conky/pix/cover.jpg
+        cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
     fi
 
@@ -171,9 +171,9 @@ AudaciousInfo(){
     AudaciousInfo bg
     AudaciousInfo art
 
-    #echo -n "\${image ~/.conky/pix/audbg.png -p 0,0}" # background for default
-    echo -n "\${image ~/.conky/pix/vinyl_bg.png -p -20,-10 -s 265x190}" # Vinyl cover background
-    echo -n "\${image ~/.conky/pix/"$AlbumArt" -p 28,30 -s 120x120}"
+    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 265x190}" # Vinyl cover background
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,36 -s 120x120}"
 
     echo ""
     echo -n "                          "
@@ -207,8 +207,8 @@ AudaciousInfo(){
     2) # conky minimalist style, only cover and info
     AudaciousInfo bg
     AudaciousInfo art
-    #echo -n "\${image ~/.conky/pix/audbg.png -p 0,0}" # background for default
-    echo -n "\${image ~/.conky/pix/"$AlbumArt" -p 28,24 -s 120x120}"
+    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,24 -s 120x120}"
 
     echo ""
     echo -n "                     "
@@ -242,8 +242,8 @@ AudaciousInfo(){
     AudaciousInfo bg
     AudaciousInfo art
 
-    echo -n "\${image ~/.conky/pix/cd_bg.png -p 9,20-s 142x128}"
-    echo -n "\${image ~/.conky/pix/"$AlbumArt" -p 28,22 -s 120x120}"
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/cd_bg.png -p 9,20-s 142x128}"
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,22 -s 120x120}"
 
     echo ""
     echo -n "                     "

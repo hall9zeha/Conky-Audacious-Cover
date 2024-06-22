@@ -1,1 +1,1 @@
-sleep 25 && conky -c  ~/.conky/.conky-audacious-cover
+sleep 25 && conky -c  ~/.conky/Conky-Audacious-Conky/.conky-audacious-cover
