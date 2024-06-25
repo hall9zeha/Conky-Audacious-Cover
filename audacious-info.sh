@@ -85,7 +85,7 @@ GetArt(){
 
     FilePath="$Directory/$File"
 
-    if [ -f "$FilePath" ]; then
+    #if [ -f "$FilePath" ]; then
         # Delete the cover.jpg file if it already exists
         rm -f ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
@@ -124,11 +124,11 @@ GetArt(){
 
          fi
 
-    else
+    #else
         # If the audio file cannot be found, use backup
-        cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+    #    cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
-    fi
+    #fi
 
 }
 GetProgress(){
@@ -180,7 +180,7 @@ AudaciousInfo(){
 
     #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 265x190}" # Vinyl cover background
-    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,36 -s 120x120}"
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,35 -s 121x122}"
 
     echo ""
     echo -n "                          "
