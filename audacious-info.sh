@@ -74,6 +74,7 @@ DrawBG(){
 
 }
 
+
 GetArt(){
 
     Directory=$(audtool playlist-tuple-data file-path "$ListPosition" | sed 's/file:\/\///')
@@ -96,6 +97,13 @@ GetArt(){
         # inside the file directory
 
         if [ $? -ne 0 ]; then
+
+            # Algunos directorios pueden tener archivos de carátulas con un nombre
+            # diferente, entonces sin importar su nombre los buscaremos por su
+            # extensión
+            jpg_file=$(find "$Directory" -type f -iname "*.jpg" | head -n 1)
+
+
             if [ -f "$Directory/Folder.jpg" ]; then
 
             cp "$Directory/Folder.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
@@ -115,6 +123,9 @@ GetArt(){
             elif [ -f "$Directory/front.jpg" ]; then
             cp "$Directory/front.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
+            elif [ -n "$jpg_file" ]; then
+            # Copia el primer archivo .jpg encontrado a cover.jpg
+            cp "$jpg_file" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             else
             # If it does not exist, copy the EmptyCover file to cover.jpg
@@ -166,8 +177,7 @@ AudaciousInfo(){
                  AlbumText+="..."
              fi
              echo "\${font Noto Sans CJK JP:normal:size=8}$AlbumText"
-
-            ;;
+             ;;
         progress)   GetProgress ;;
     esac
 }
@@ -179,7 +189,7 @@ AudaciousInfo(){
     AudaciousInfo art
 
     #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
-    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 265x190}" # Vinyl cover background
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 266x190}" # Vinyl cover background
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,35 -s 121x122}"
 
     echo ""
