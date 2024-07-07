@@ -18,7 +18,7 @@ Opacity=0.5
 # Opacity=0.2 # original
 BGColor='black'
 AlbumArt="cover.jpg"
-EmptyCover="empty-cover.png"
+EmptyCover="audacious-empty-cover.png"
 
 
 CharLength=7
@@ -101,7 +101,7 @@ GetArt(){
             # Algunos directorios pueden tener archivos de carátulas con un nombre
             # diferente, entonces sin importar su nombre los buscaremos por su
             # extensión
-            jpg_file=$(find "$Directory" -type f -iname "*.jpg" | head -n 1)
+            jpg_file=$(find "$Directory" -maxdepth 1 -type f -iname "*.jpg" | head -n 1)
 
 
             if [ -f "$Directory/Folder.jpg" ]; then
@@ -129,8 +129,8 @@ GetArt(){
 
             else
             # If it does not exist, copy the EmptyCover file to cover.jpg
-            #cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-            FoundFile=false
+            cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+
             fi
 
          fi
