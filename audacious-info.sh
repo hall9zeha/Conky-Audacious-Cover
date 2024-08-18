@@ -12,6 +12,8 @@
 ## Receives argument from .conky-Audacious-cover
 conkyMode=$1
 
+StateFile=~/.conky/Conky-Audacious-Cover/pix/state.txt
+
 Corners=0 # 14 original for background
 CoverCorners=84 # for cover art not work very well
 Opacity=0.5
@@ -86,7 +88,18 @@ GetArt(){
 
     FilePath="$Directory/$File"
 
-    #if [ -f "$FilePath" ]; then
+    # Create state file if not exist
+    if [ ! -f "$StateFile" ]; then
+        touch "$StateFile"
+    fi
+
+    # Read current song path of state file
+    current_song=$(cat "$StateFile" 2>/dev/null)
+
+    if [ "$FilePath" != "$current_song" ]; then
+        # Save current song path in the state file
+        echo "$FilePath" > "$StateFile"
+
         # Delete the cover.jpg file if it already exists
         rm -f ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
@@ -98,34 +111,14 @@ GetArt(){
 
         if [ $? -ne 0 ]; then
 
-            # Algunos directorios pueden tener archivos de carátulas con un nombre
-            # diferente, entonces sin importar su nombre los buscaremos por su
-            # extensión
-            jpg_file=$(find "$Directory" -maxdepth 1 -type f -iname "*.jpg" | head -n 1)
+            # Some directories may have cover files with a different name,
+            # so regardless of their name, we will look for them by their
+            # extension.
+            cover_img_file=$(find "$Directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" \) | head -n 1)
 
-
-            if [ -f "$Directory/Folder.jpg" ]; then
-
-            cp "$Directory/Folder.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -f "$Directory/folder.jpg" ]; then
-            cp "$Directory/folder.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -f "$Directory/Cover.jpg" ]; then
-            cp "$Directory/Cover.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -f "$Directory/cover.jpg" ]; then
-            cp "$Directory/cover.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -f "$Directory/Front.jpg" ]; then
-            cp "$Directory/Front.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -f "$Directory/front.jpg" ]; then
-            cp "$Directory/front.jpg" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-            elif [ -n "$jpg_file" ]; then
-            # Copia el primer archivo .jpg encontrado a cover.jpg
-            cp "$jpg_file" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+            if [ -n "$cover_img_file" ]; then
+            # Copy the first .jpg  or .png file found to cover.jpg
+            cp "$cover_img_file" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             else
             # If it does not exist, copy the EmptyCover file to cover.jpg
@@ -134,12 +127,7 @@ GetArt(){
             fi
 
          fi
-
-    #else
-        # If the audio file cannot be found, use backup
-    #    cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
-
-    #fi
+    fi
 
 }
 GetProgress(){
