@@ -60,21 +60,21 @@ if [ $Width -le $MinWidth ];then
     Width=$MinWidth
 fi
 
-mkdir -p ~/.conky/pix/
+#mkdir -p ~/.conky/Conky-Audacious-Cover/pix/
 
-DrawBG(){
-    convert -size ${Width}x${Height} xc:${BGColor} \
-        png:- | convert - \
-         \( +clone  -threshold -1 \
-            -draw "fill black polygon 0,0 0,"$Corners" "$Corners",0 \
-            fill white circle "$Corners","$Corners" "$Corners",0" \
-            \( +clone -flip \) -compose Multiply -composite \
-            \( +clone -flop \) -compose Multiply -composite \
-         \) +matte -compose CopyOpacity -composite  \
-        -alpha on -channel RGBA -evaluate multiply ${Opacity} \
-         ~/.conky/pix/audbg.png
-
-}
+# DrawBG(){
+#     convert -size ${Width}x${Height} xc:${BGColor} \
+#         png:- | convert - \
+#          \( +clone  -threshold -1 \
+#             -draw "fill black polygon 0,0 0,"$Corners" "$Corners",0 \
+#             fill white circle "$Corners","$Corners" "$Corners",0" \
+#             \( +clone -flip \) -compose Multiply -composite \
+#             \( +clone -flop \) -compose Multiply -composite \
+#          \) +matte -compose CopyOpacity -composite  \
+#         -alpha on -channel RGBA -evaluate multiply ${Opacity} \
+#          ~/.conky/pix/audbg.png
+#
+# }
 
 
 GetArt(){
@@ -141,7 +141,7 @@ GetProgress(){
 AudaciousInfo(){
 
   case "$1" in
-        bg)         DrawBG ;;
+        #bg)         DrawBG ;;
         art)        GetArt ;;
         status)     echo "$EchoStatus" ;;
         title)
