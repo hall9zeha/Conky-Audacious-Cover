@@ -96,15 +96,15 @@ GetArt(){
     # Read current song path of state file
     current_song=$(cat "$StateFile" 2>/dev/null)
 
-    if [ "$FilePath" != "$current_song" ]; then
+   if [ "$FilePath" != "$current_song" ]; then
         # Save current song path in the state file
         echo "$FilePath" > "$StateFile"
 
-        # Delete the cover.jpg file if it already exists
-        rm -f ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+        # Create a temporary cover file
+        temp_cover=~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg
 
         # Extract cover art from audio file using ffmpeg
-        ffmpeg -i "$FilePath" -an -vcodec copy -f image2 ~/.conky/Conky-Audacious-Cover/pix/cover.jpg >/dev/null 2>&1
+        ffmpeg -i "$FilePath" -an -vcodec copy -f image2 ~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg >/dev/null 2>&1
 
         # If the file does not have a cover in its metadata, look for the following
         # inside the file directory
@@ -125,6 +125,10 @@ GetArt(){
             cp ~/.conky/Conky-Audacious-Cover/pix/"$EmptyCover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
 
             fi
+        else
+            # Move the temporary cover to the final location
+            mv "$temp_cover" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
+
 
          fi
     fi
