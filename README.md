@@ -26,22 +26,31 @@ ${if_running audacious}${execpi 2 ~/.conky/Conky-Audacious-Cover/audacious-info.
 ```
 
 ## How to Install
-  - 1 .- Go to your home directory.
-  - 2 .- Create the ```.conky``` directory if you don't have it yet.
-  - 3 .- Open a terminal inside ```.conky``` directory
-  - 4 .- Inside the already created ```.conky``` directory  clone the repository typing the following in the terminal
-    ``` bash
-    git clone https://github.com/hall9zeha/Conky-Audacious-Cover.git
-    
+
+Typing on terminal:
+  - 1
+    ```bash
+     mkdir ~/.conky
     ```
-  - 5 .- A folder called ```Conky-Audacious-Conky``` will be downloaded, inside the folder Give execution permissions to ```audacious-info.sh``` and ```start-audacious-conky.sh```
-typing in your terminal:
-```bash
-sudo chmod +x audacious-info.sh
-```
-```bash
-sudo chmod +x start-audacious-conky.sh
-```
+  - 2
+    ```bash
+    cd ~/.conky
+    ```
+  - 3
+    ```bash
+    git clone https://github.com/hall9zeha/Conky-Audacious-Cover.git
+    ```
+  - 4 
+    ``` bash
+    cd Conky-Audacious-Cover    
+    ```
+  - 5     
+    ```bash
+    sudo chmod +x audacious-info.sh
+    ```
+    ```bash
+    sudo chmod +x start-audacious-conky.sh
+    ```
 inside the conky file you can modify the startup delay of conky audacious 
 ```bash
 sleep 15 && conky -c  ~/.conky/Conky-Audacious-Cover/.conky-audacious-cover
