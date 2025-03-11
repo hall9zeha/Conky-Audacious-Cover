@@ -51,11 +51,11 @@ Typing on terminal:
     ```bash
     sudo chmod +x start-audacious-conky.sh
     ```
-inside the conky file you can modify the startup delay of conky audacious 
+inside the conky file ```start-audacious-conky.sh``` you can modify the startup delay of conky audacious 
 ```bash
 sleep 15 && conky -c  ~/.conky/Conky-Audacious-Cover/.conky-audacious-cover
 ```
- - 6 .- Finally add the script to autostart on your linux distribution so that it always starts when you turn on the computer.
+ - 6 .- Finally add the script file ```start-audacious-conky.sh``` to autostart on your linux distribution so that it always starts when you turn on the computer.
 
 To launch the conky audacious cover and test its operation, run in the terminal 
 ```bash
