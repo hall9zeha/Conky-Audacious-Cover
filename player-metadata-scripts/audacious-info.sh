@@ -115,7 +115,7 @@ GetArt(){
             # Some directories may have cover files with a different name,
             # so regardless of their name, we will look for them by their
             # extension.
-            cover_img_file=$(find "$Directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" \) | head -n 1)
+            cover_img_file=$(find "$Directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | head -n 1)
 
             if [ -n "$cover_img_file" ]; then
             # Copy the first .jpg  or .png file found to cover.jpg

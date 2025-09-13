@@ -80,7 +80,7 @@ GetArt(){
 
         # If the cover could not be extracted, search the directory
         if [ $? -ne 0 ]; then
-            cover_img_file=$(find "$Directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" \) | head -n 1)
+            cover_img_file=$(find "$Directory" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | head -n 1)
 
             if [ -n "$cover_img_file" ]; then
                 cp "$cover_img_file" ~/.conky/Conky-Audacious-Cover/pix/cover.jpg
