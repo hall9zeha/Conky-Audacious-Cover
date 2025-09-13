@@ -1,5 +1,6 @@
 # Conky-Audacious-Cover
 A simple conky for show cover art of your music in audacious media player on Linux distributions.
+Now with support to display cover art and metadata from MOC and Spotify.
 
 ## Requirements
 
@@ -7,15 +8,21 @@ have installed:
 * conky
 * ffmpeg
 * imagemagick
+* playerctl (to retrieve metadata from Spotify)
+
 ## Features
-- Only show if audacious is open.
+
+The Conky cover will only be visible if the player in question (Audacious, MOC, or Spotify) is running. If more than one player is running at the same time, only the metadata of the player that was launched first will be displayed. If the oldest player is closed, the metadata of the next player in the order of launch will be shown.
+
 - It has three styles of displaying audio covers:
   - Minimal cover
   - Vinyl cover
   - Cd cover
 - Shows album art, title, artist and album.
 
-To change the style of conky change the following argument in ```.conky-audacious-cover```
+To change the style of conky change the following argument in ```.conky-audacious-cover```. The file is hidden by default. To view it, press the key combination `Ctrl + H`.
+
+
 ```
 # conky_vinyl cover = 1
 # conky_minimal cover = 2
@@ -44,10 +51,11 @@ Typing on terminal:
     ``` bash
     cd Conky-Audacious-Cover    
     ```
-  - 5     
+  - 5 Give execution permissions to all scripts within the player-metadata-scripts directory.
     ```bash
-    sudo chmod +x audacious-info.sh
+    sudo chmod +x player-metadata-scripts/*.sh
     ```
+    Give execution permissions to the script for starting conky-audacious-cover.
     ```bash
     sudo chmod +x start-audacious-conky.sh
     ```
