@@ -82,5 +82,14 @@ if you have copied all the files following the instructions, otherwise you can c
 * Compact Disc style
 <p align="left" width="30%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen3.png"  alt="drawing" width="50%"/></p>
 
+## Audacious
 <p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen5.png"  alt="drawing" width="70%"/></p>
 <p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen4.png"  alt="drawing" width="70%"/></p>
+
+## MOC
+
+<p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen6.jpg"  alt="drawing" width="70%"/></p>
+
+## Spotify
+
+<p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen7.jpg"  alt="drawing" width="70%"/></p>
