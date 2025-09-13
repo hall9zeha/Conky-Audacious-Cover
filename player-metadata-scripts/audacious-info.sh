@@ -10,7 +10,7 @@
 
 ## *********************
 ## Receives argument from .conky-Audacious-cover
-conkyMode=$1
+conkyStyle=$1
 
 StateFile=~/.conky/Conky-Audacious-Cover/pix/state.txt
 
@@ -89,6 +89,7 @@ GetArt(){
     FilePath="$Directory/$File"
 
     # Create state file if not exist
+    # The state file is used to prevent overwriting and extracting the album artwork if it already exists, and ensures that # the cover art is not extracted again until a new song is played.
     if [ ! -f "$StateFile" ]; then
         touch "$StateFile"
     fi
@@ -174,7 +175,7 @@ AudaciousInfo(){
     esac
 }
 
-    case "$conkyMode" in
+    case "$conkyStyle" in
 
     1)# If vinyl type conky was chosen
     AudaciousInfo bg
