@@ -26,9 +26,10 @@ To change the style of conky change the following argument in ```.conky-audaciou
 ```
 # conky_vinyl cover = 1
 # conky_minimal cover = 2
-# after audacious-info.sh -> 1 or 2
+# conky_compact_dic cover = 3
+# after audacious-info.sh -> 1, 2 or 3
 
-${if_running audacious}${execpi 2 ~/.conky/Conky-Audacious-Cover/audacious-info.sh 1}${endif}
+${execpi 2 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
 
 ```
 
