@@ -56,12 +56,14 @@ Typing on terminal:
 
     Give execution permissions to the script that will detect our active music players.
     ```bash
-    sudo chmod +x detect-player.sh    ```
+    sudo chmod +x detect-player.sh
+    ```
 
     Give execution permissions to all scripts within the player-metadata-scripts directory.
     ```bash
     sudo chmod +x player-metadata-scripts/*.sh
     ```
+
     Give execution permissions to the script for starting conky-audacious-cover.
     ```bash
     sudo chmod +x start-audacious-conky.sh
