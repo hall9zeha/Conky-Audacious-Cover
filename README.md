@@ -52,7 +52,13 @@ Typing on terminal:
     ``` bash
     cd Conky-Audacious-Cover    
     ```
-  - 5 Give execution permissions to all scripts within the player-metadata-scripts directory.
+  - 5
+
+    Give execution permissions to the script that will detect our active music players.
+    ```bash
+    sudo chmod +x detect-player.sh    ```
+
+    Give execution permissions to all scripts within the player-metadata-scripts directory.
     ```bash
     sudo chmod +x player-metadata-scripts/*.sh
     ```
