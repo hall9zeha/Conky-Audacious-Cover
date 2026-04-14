@@ -1,6 +1,6 @@
 # Conky-Audacious-Cover
 A simple conky for show cover art of your music in audacious media player on Linux distributions.
-Now with support to display cover art and metadata from MOC and Spotify.
+Now with support to display cover art and metadata from MOC, Spotify and the native AIMP version fro Linux (does not work with the Wine version).
 
 ## Requirements
 
@@ -12,7 +12,7 @@ have installed:
 
 ## Features
 
-The Conky cover will only be visible if the player in question (Audacious, MOC, or Spotify) is running. If more than one player is running at the same time, only the metadata of the player that was launched first will be displayed. If the oldest player is closed, the metadata of the next player in the order of launch will be shown.
+The Conky cover will only be visible if the player in question (Audacious, MOC, Spotify and AIMP) is running. If more than one player is running at the same time, only the metadata of the player that was launched first will be displayed. If the oldest player is closed, the metadata of the next player in the order of launch will be shown.
 
 - It has three styles of displaying audio covers:
   - Minimal cover
@@ -101,3 +101,7 @@ if you have copied all the files following the instructions, otherwise you can c
 ## Spotify
 
 <p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen7.jpg"  alt="drawing" width="70%"/></p>
+
+## AIMP (Native beta version for Linux not the Wine version)
+
+<p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen8.jpg"  alt="drawing" width="70%"/></p>
