@@ -102,6 +102,6 @@ if you have copied all the files following the instructions, otherwise you can c
 
 <p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen7.jpg"  alt="drawing" width="70%"/></p>
 
-## AIMP (Native beta version for Linux not the Wine version)
+## AIMP
 
 <p align="left" width="50%"><img src="https://github.com/hall9zeha/Conky-Audacious-Cover/blob/main/screenshots/screen8.jpg"  alt="drawing" width="70%"/></p>
