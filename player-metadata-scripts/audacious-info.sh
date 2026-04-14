@@ -105,7 +105,7 @@ GetArt(){
         temp_cover=~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg
 
         # Extract cover art from audio file using ffmpeg
-        ffmpeg -i "$FilePath" -an -vcodec copy -f image2 ~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg >/dev/null 2>&1
+        ffmpeg -i "$FilePath" -map 0:v:0 "$temp_cover" >/dev/null 2>&1
 
         # If the file does not have a cover in its metadata, look for the following
         # inside the file directory
