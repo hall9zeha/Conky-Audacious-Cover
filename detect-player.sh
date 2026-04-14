@@ -43,6 +43,13 @@ if pgrep -x audacious > /dev/null; then
     done
 fi
 
+#Check if AIMP is active
+if pgrep -x aimp > /dev/null; then
+    for pid in $(pgrep -x aimp); do
+        players[$pid]="aimp"
+    done
+fi
+
 # If no player is active, exit
 if [ ${#players[@]} -eq 0 ]; then
     exit 0
@@ -76,6 +83,9 @@ case "$player" in
         ;;
    spotify)
         "$SCRIPT_DIR/spotify-info.sh" "$STYLE"
+        ;;
+    aimp)
+        "$SCRIPT_DIR/aimp-info.sh" "$STYLE"
         ;;
 esac
 
