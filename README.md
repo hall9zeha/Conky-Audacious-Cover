@@ -24,13 +24,33 @@ To change the style of conky change the following argument in ```.conky-audaciou
 
 
 ```
-# conky_vinyl cover = 1
-# conky_minimal cover = 2
-# conky_compact_dic cover = 3
-# after detect-player.sh -> 1, 2 or 3
+# CONKY PLAYER STYLE CONFIG
+# ================================
 
-${execpi 2 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
+STYLE (first parameter)
+Defines the visual layout:
+  1 = Vinyl style
+  2 = Minimal style
+  3 = Compact Disc style
 
+Default: 1 (Vinyl)
+
+MODE (second parameter)
+Defines what is displayed:
+  full = Cover + song information
+  cover = Cover only
+
+Default: full
+
+USAGE:
+${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh STYLE MODE}
+
+EXAMPLES:
+${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
+→ Vinyl + full info
+
+${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 3 cover}
+→ Compact disc style, cover only
 ```
 
 ## How to Install
