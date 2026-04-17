@@ -5,7 +5,7 @@ use_xft yes
 xftfont  Noto Mono:size=9
 xftalpha 0.8
 
-update_interval 2.0
+update_interval 1.0
 total_run_times 0
 own_window yes
 own_window_argb_visual  true
@@ -47,11 +47,36 @@ imlib_cache_size 0
 # border_inner_margin 0
 border_outer_margin 10
 
+# ================================
+# CONKY PLAYER STYLE CONFIG
+# ================================
+
+# STYLE (first parameter)
+# Defines the visual layout:
+#   1 = Vinyl style
+#   2 = Minimal style
+#   3 = Compact Disc style
+#
+# Default: 1 (Vinyl)
+
+# MODE (second parameter)
+# Defines what is displayed:
+#   full = Cover + song information
+#   cover = Cover only
+#
+# Default: full
+
+# USAGE:
+# ${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh STYLE MODE}
+
+# EXAMPLES:
+# ${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
+# → Vinyl + full info
+
+# ${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 3 cover}
+# → Compact disc style, cover only
+
 TEXT
 
-# conky_vinyl cover = 1
-# conky_minimal cover = 2
-# conky_compact_disc cover = 3
-# after detect-player.sh -> 1, 2 or 3
 
-${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
+${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 3}

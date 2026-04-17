@@ -12,6 +12,7 @@
 
 
 STYLE="$1"  # Receives the parameter from Conky
+MODE="$2"
 
 SCRIPT_DIR=~/.conky/Conky-Audacious-Cover/player-metadata-scripts
 
@@ -76,16 +77,16 @@ player=${players[$oldest_pid]}
 
 case "$player" in
     audacious)
-        "$SCRIPT_DIR/audacious-info.sh" "$STYLE"
+        "$SCRIPT_DIR/audacious-info.sh" "$STYLE" "$MODE"
         ;;
    mocp)
-        "$SCRIPT_DIR/moc-info.sh" "$STYLE"
+        "$SCRIPT_DIR/moc-info.sh" "$STYLE" "$MODE"
         ;;
    spotify)
-        "$SCRIPT_DIR/spotify-info.sh" "$STYLE"
+        "$SCRIPT_DIR/spotify-info.sh" "$STYLE" "$MODE"
         ;;
     aimp)
-        "$SCRIPT_DIR/aimp-info.sh" "$STYLE"
+        "$SCRIPT_DIR/aimp-info.sh" "$STYLE" "$MODE"
         ;;
 esac
 

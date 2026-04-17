@@ -116,83 +116,94 @@ MocInfo() {
     esac
 }
 
-case "$conkyStyle" in
+# -------------------------
+# OUTPUT CONKY INFO
+# -------------------------
 
-    1) # Vinyl style
-        MocInfo bg
-        MocInfo art
-        echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 266x190}"
-        echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/$AlbumArt -p 28,35 -s 121x122}"
+    case "$conkyStyle" in
 
-        echo ""
-        echo -n "                          "
-        echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-        echo ""
-        echo -n "                  "
-        echo -e -n "                                                  "
-        echo -n "\${color0}"
-        MocInfo title
-        echo -n "                "
-        echo -e -n "                                                    "
-        echo -n "\${color0}"
-        MocInfo artist
-        echo -n "                                          "
-        echo -e -n "                          "
-        echo -n "\${color0}"
-        MocInfo album
-        echo -n "                 "
-        echo "";;
+    1)# If vinyl type conky was chosen
+    MocInfo bg
+    MocInfo art
 
-    2) # Minimalist style
-        MocInfo bg
-        MocInfo art
-        echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/$AlbumArt -p 28,24 -s 120x120}"
+    # Cover art
 
-        echo ""
-        echo -n "                     "
-        echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-        echo ""
-        echo -n "                  "
-        echo -e -n "                                     "
-        echo -n "\${color0}"
-        MocInfo title
-        echo -n "                "
-        echo -e -n "                                       "
-        echo -n "\${color0}"
-        MocInfo artist
-        echo -n "                             "
-        echo -e -n "                          "
-        echo -n "\${color0}"
-        MocInfo album
-        echo -n "                 "
-        echo "";;
+    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 266x190}" # Vinyl cover background
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,35 -s 121x122}"
 
-    3) # CD style
-        MocInfo bg
-        MocInfo art
-        echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/cd_bg.png -p 9,20 -s 142x128}"
-        echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/$AlbumArt -p 28,22 -s 120x120}"
+    # Cover art end
 
-        echo ""
-        echo -n "                     "
-        echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-        echo ""
-        echo -n "                  "
-        echo -e -n "                                     "
-        echo -n "\${color0}"
-        MocInfo title
-        echo -n "                "
-        echo -e -n "                                       "
-        echo -n "\${color0}"
-        MocInfo artist
-        echo -n "                             "
-        echo -e -n "                          "
-        echo -n "\${color0}"
-        MocInfo album
-        echo -n "                 "
-        echo "";;
+    # Player status
+    echo ""
+    echo " \${goto 220}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
 
-    *)
-        echo ""
-        ;;
-esac
+
+    # Title
+    echo ""
+    echo "\${goto 220}\${color0}$(MocInfo title)"
+
+    # Artist
+    echo "\${goto 220}\${color0}$(MocInfo artist)"
+
+    # Album
+    echo "\${goto 220}\${color0}$(MocInfo album)"
+
+    # MocInfo progress
+    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+
+    echo "";;
+
+    2) # conky minimalist style, only cover and info
+    MocInfo bg
+    MocInfo art
+
+    # Cover art
+
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,24 -s 120x120}"
+
+    # Cover art end
+
+    # Player status
+    echo ""
+    echo " \${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+
+    # Title
+    echo ""
+    echo "\${goto 180}\${color0}$(MocInfo title)"
+
+    # Artist
+    echo "\${goto 180}\${color0}$(MocInfo artist)"
+
+    # Album
+    echo "\${goto 180}\${color0}$(MocInfo album)"
+
+    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+
+    echo "";;
+    3)# conky cd style
+
+    #Cover art
+    MocInfo bg
+    MocInfo art
+    # Cover art and placeholder
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/cd_bg.png -p 9,20-s 142x128}"
+    echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,22 -s 120x120}"
+
+    # Player status
+    echo ""
+    echo " \${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+
+    # Title
+    echo ""
+    echo "\${goto 180}\${color0}$(MocInfo title)"
+
+    # Artist
+    echo "\${goto 180}\${color0}$(MocInfo artist)"
+
+    # Album
+    echo "\${goto 180}\${color0}$(MocInfo album)"
+    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+
+    echo "";;
+    esac

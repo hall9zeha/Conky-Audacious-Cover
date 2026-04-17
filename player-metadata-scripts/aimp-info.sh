@@ -1,13 +1,5 @@
-#!/bin/bash
-###################################################################################
-##                                                                               ##
-##                          Created by Barry Zea H.                              ##
-##                                                                               ##
-##                                                                               ##
-###################################################################################
-
-
-conkyStyle=$1
+conkyStyle=1
+displayMode="full"
 
 StateFile="$HOME/.conky/Conky-Audacious-Cover/pix/state.txt"
 
@@ -29,6 +21,18 @@ Album=$(playerctl --player=AIMP metadata album 2>/dev/null)
 [ -z "$Title" ] && Title="Unknown"
 [ -z "$Artist" ] && Artist="Unknown"
 [ -z "$Album" ] && Album="Unknown"
+
+# Detect parameters
+for arg in "$@"; do
+    case "$arg" in
+        1|2|3)
+            conkyStyle="$arg"
+            ;;
+        cover|full)
+            displayMode="$arg"
+            ;;
+    esac
+done
 
 # -------------------------
 # COVER
@@ -160,115 +164,100 @@ AIMPInfo(){
 }
 
 # -------------------------
-# OUTPUT CONKY
+# OUTPUT CONKY INFO
 # -------------------------
-   case "$conkyStyle" in
+
+    case "$conkyStyle" in
 
     1)# If vinyl type conky was chosen
     AIMPInfo bg
     AIMPInfo art
 
-    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+    # Cover art
+
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 266x190}" # Vinyl cover background
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,35 -s 121x122}"
 
-    echo ""
-    echo -n "                          "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-    echo ""
-    echo -n "                  "
+    # Cover art end
+    if [ "$displayMode" != "cover" ]; then
 
+        # Player status
+        echo ""
+        echo " \${goto 220}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                                  "
-    echo -n "\${color0}"
-    AIMPInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
+        # Title
+        echo ""
+        echo "\${goto 220}\${color0}$(AIMPInfo title)"
 
-    echo -e -n "                                                    "
-    echo -n "\${color0}"
-    AIMPInfo artist
-    echo -n "                                          "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
+        # Artist
+        echo "\${goto 220}\${color0}$(AIMPInfo artist)"
 
-    echo -n "\${color0}"
-    AIMPInfo album
-    AIMPInfo progress
-    echo -n "                 "
-    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+        # Album
+        echo "\${goto 220}\${color0}$(AIMPInfo album)"
 
+        # AIMPInfo progress
+        #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+    fi
     echo "";;
 
     2) # conky minimalist style, only cover and info
     AIMPInfo bg
     AIMPInfo art
-    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+
+    # Cover art
+
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,24 -s 120x120}"
 
-    echo ""
-    echo -n "                     "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-    echo ""
-    echo -n "                  "
+    # Cover art end
 
+   if [ "$displayMode" != "cover" ]; then
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                     "
-    echo -n "\${color0}"
-    AIMPInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
+        # Player status
+        echo ""
+        echo "\${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
 
-    echo -e -n "                                       "
-    echo -n "\${color0}"
-    AIMPInfo artist
-    echo -n "                             "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
+        # Title
+        echo ""
+        echo "\${goto 180}\${color0}$(AIMPInfo title)"
 
-    echo -n "\${color0}"
-    AIMPInfo album
-    AIMPInfo progress
-    echo -n "                 "
-    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+        # Artist
+        echo "\${goto 180}\${color0}$(AIMPInfo artist)"
 
+        # Album
+        echo "\${goto 180}\${color0}$(AIMPInfo album)"
+
+        # AIMPInfo progress
+        #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+    fi
     echo "";;
     3)# conky cd style
+
+    #Cover art
     AIMPInfo bg
     AIMPInfo art
-
+    # Cover art and placeholder
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/cd_bg.png -p 9,20-s 142x128}"
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,22 -s 120x120}"
 
-    echo ""
-    echo -n "                     "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
-    echo ""
-    echo -n "                  "
+   if [ "$displayMode" != "cover" ]; then
 
+        # Player status
+        echo ""
+        echo "\${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                     "
-    echo -n "\${color0}"
-    AIMPInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
+        # Title
+        echo ""
+        echo "\${goto 180}\${color0}$(AIMPInfo title)"
 
-    echo -e -n "                                       "
-    echo -n "\${color0}"
-    AIMPInfo artist
-    echo -n "                             "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
+        # Artist
+        echo "\${goto 180}\${color0}$(AIMPInfo artist)"
 
-    echo -n "\${color0}"
-    AIMPInfo album
-    AIMPInfo progress
-    echo -n "                 "
-    #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+        # Album
+        echo "\${goto 180}\${color0}$(AIMPInfo album)"
 
+        # AIMPInfo progress
+        #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
+    fi
     echo "";;
     esac
 

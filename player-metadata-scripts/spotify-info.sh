@@ -105,41 +105,40 @@ SpotifyInfo() {
     esac
 }
 
-case "$conkyStyle" in
+# -------------------------
+# OUTPUT CONKY INFO
+# -------------------------
+
+    case "$conkyStyle" in
 
     1)# If vinyl type conky was chosen
     SpotifyInfo bg
     SpotifyInfo art
 
+    # Cover art
+
     #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/vinyl_bg.png -p -20,-4 -s 266x190}" # Vinyl cover background
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,35 -s 121x122}"
 
+    # Cover art end
+
+    # Player status
     echo ""
-    echo -n "                          "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+    echo " \${goto 220}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+
+
+    # Title
     echo ""
-    echo -n "                  "
+    echo "\${goto 220}\${color0}$(SpotifyInfo title)"
 
+    # Artist
+    echo "\${goto 220}\${color0}$(SpotifyInfo artist)"
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                                  "
-    echo -n "\${color0}"
-    SpotifyInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
+    # Album
+    echo "\${goto 220}\${color0}$(SpotifyInfo album)"
 
-    echo -e -n "                                                    "
-    echo -n "\${color0}"
-    SpotifyInfo artist
-    echo -n "                                          "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
-
-    echo -n "\${color0}"
-    SpotifyInfo album
-    SpotifyInfo progress
-    echo -n "                 "
+    # SpotifyInfo progress
     #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
 
     echo "";;
@@ -147,69 +146,52 @@ case "$conkyStyle" in
     2) # conky minimalist style, only cover and info
     SpotifyInfo bg
     SpotifyInfo art
-    #echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/audbg.png -p 0,0}" # background for default
+
+    # Cover art
+
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,24 -s 120x120}"
 
+    # Cover art end
+
+    # Player status
     echo ""
-    echo -n "                     "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+    echo " \${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+
+    # Title
     echo ""
-    echo -n "                  "
+    echo "\${goto 180}\${color0}$(SpotifyInfo title)"
 
+    # Artist
+    echo "\${goto 180}\${color0}$(SpotifyInfo artist)"
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                     "
-    echo -n "\${color0}"
-    SpotifyInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
+    # Album
+    echo "\${goto 180}\${color0}$(SpotifyInfo album)"
 
-    echo -e -n "                                       "
-    echo -n "\${color0}"
-    SpotifyInfo artist
-    echo -n "                             "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
-
-    echo -n "\${color0}"
-    SpotifyInfo album
-    SpotifyInfo progress
-    echo -n "                 "
     #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
 
     echo "";;
     3)# conky cd style
+
+    #Cover art
     SpotifyInfo bg
     SpotifyInfo art
-
+    # Cover art and placeholder
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/cd_bg.png -p 9,20-s 142x128}"
     echo -n "\${image ~/.conky/Conky-Audacious-Cover/pix/"$AlbumArt" -p 28,22 -s 120x120}"
 
+    # Player status
     echo ""
-    echo -n "                     "
-    echo -e "   \${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+    echo " \${goto 180}\${font Ubuntu:bold:size=10}\${color}$EchoStatus"
+
+    # Title
     echo ""
-    echo -n "                  "
+    echo "\${goto 180}\${color0}$(SpotifyInfo title)"
 
+    # Artist
+    echo "\${goto 180}\${color0}$(SpotifyInfo artist)"
 
-    #echo -e -n "   \${color}Title: "
-    echo -e -n "                                     "
-    echo -n "\${color0}"
-    SpotifyInfo title
-    echo -n "                "
-    #echo -e -n "   \${color}Artist: "
-
-    echo -e -n "                                       "
-    echo -n "\${color0}"
-    SpotifyInfo artist
-    echo -n "                             "
-    #echo -e -n "   \${color}Album: "
-    echo -e -n "                          "
-
-    echo -n "\${color0}"
-    SpotifyInfo album
-    SpotifyInfo progress
-    echo -n "                 "
+    # Album
+    echo "\${goto 180}\${color0}$(SpotifyInfo album)"
     #echo -e "   \${execbar echo "$ProgLen"}" # optional but need adjust
 
     echo "";;
