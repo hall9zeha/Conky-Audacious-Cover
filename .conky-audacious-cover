@@ -79,4 +79,4 @@ border_outer_margin 10
 TEXT
 
 
-${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 3}
+${execpi 1 ~/.conky/Conky-Audacious-Cover/detect-player.sh 1}
