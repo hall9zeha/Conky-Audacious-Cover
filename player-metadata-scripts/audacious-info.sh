@@ -103,7 +103,7 @@ GetArt(){
 
         # Create a temporary cover file
         temp_cover=~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg
-
+        rm -f "$temp_cover"
         # Extract cover art from audio file using ffmpeg
         ffmpeg -i "$FilePath" -map 0:v:0 "$temp_cover" >/dev/null 2>&1
 

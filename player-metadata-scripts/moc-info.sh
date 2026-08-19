@@ -74,7 +74,7 @@ GetArt(){
 
         # Temporary route to extract cover
         temp_cover=~/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg
-
+        rm -f "$temp_cover"
         # Extract embedded cover art (if any) using ffmpeg
         ffmpeg -i "$FilePath" -map 0:v:0 "$temp_cover" >/dev/null 2>&1
 

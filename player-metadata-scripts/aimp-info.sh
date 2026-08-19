@@ -41,7 +41,7 @@ GetArt(){
 
     cover_output="$HOME/.conky/Conky-Audacious-Cover/pix/cover.jpg"
     temp_cover="$HOME/.conky/Conky-Audacious-Cover/pix/temp_cover.jpg"
-
+    rm -f "$temp_cover"
     FilePath=$(playerctl --player=AIMP metadata xesam:url 2>/dev/null)
     FilePath=${FilePath#file://}
     FilePath=$(printf '%b' "${FilePath//%/\\x}")
